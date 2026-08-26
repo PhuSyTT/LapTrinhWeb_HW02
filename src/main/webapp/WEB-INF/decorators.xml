@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/decorators">
+    <!-- Exclude files from decoration -->
+    <excludes>
+        <pattern>/template/*</pattern>
+        <pattern>/static/*</pattern>
+    </excludes>
+
+    <decorator name="admin" page="admin.jsp">
+        <pattern>/admin/*</pattern>
+    </decorator>
+
+    <decorator name="web" page="web.jsp">
+        <pattern>/home*</pattern>
+        <pattern>/*</pattern>
+    </decorator>
+</decorators>
