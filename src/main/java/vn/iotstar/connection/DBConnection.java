@@ -8,8 +8,8 @@ public class DBConnection {
     private final String dbName = "ServletCRUDMVC";
     private final String portNumber = "1433";
     private final String instance = ""; // MSSQLSERVER LEAVE THIS ONE EMPTY IF YOUR SQL IS A SINGLE INSTANCE
-    private final String userID = "sa";
-    private final String password = "1234@a$";
+    private final String userID = "phusy";
+    private final String password = "1234@abc";
 
     public Connection getConnection() throws Exception {
         String url = "jdbc:sqlserver://" + serverName + ":" + portNumber + "\\" + instance

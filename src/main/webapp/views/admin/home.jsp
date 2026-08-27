@@ -13,7 +13,7 @@
 <div class="container" style="margin-top: 50px;">
     <div class="panel panel-danger">
         <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-shield"></i> Trang Quản Trị Hệ Thống (Admin Dashboard)</h3>
+            <h3 class="panel-title"><i class="fa fa-shield"></i> Trang Quản Trị Hệ Thống </h3>
         </div>
         <div class="panel-body">
             <p>Chào mừng Admin <strong>${sessionScope.account.fullName}</strong> đến với trang quản trị.</p>

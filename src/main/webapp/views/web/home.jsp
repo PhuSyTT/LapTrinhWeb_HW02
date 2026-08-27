@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Trang Chủ - Hệ Thống Servlet CRUD MVC</title>
+    <title>Trang Chủ - Servlet CRUD</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
@@ -12,8 +12,7 @@
 <jsp:include page="/common/topbar.jsp"></jsp:include>
 <div class="container" style="margin-top: 50px;">
     <div class="jumbotron" style="background: #f1f8fc; border-radius: 8px; border: 1px solid #d8e8f5;">
-        <h2>Hệ Thống Kiến Trúc 3 Tầng & Mô Hình MVC</h2>
-        <p>Thực hiện các chức năng Authentication (Login / Register / Waiting phân quyền) và CRUD Quản lý Danh mục (Category).</p>
+        <h2>BÀI TẬP LẬP TRÌNH WEB 01</h2>
         <c:if test="${sessionScope.account != null}">
             <div class="alert alert-success">
                 Đang đăng nhập dưới tài khoản: <strong>${sessionScope.account.userName}</strong> (${sessionScope.account.fullName}) - Role ID: <strong>${sessionScope.account.roleid}</strong>
