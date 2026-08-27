@@ -1,7 +1,7 @@
 package vn.iotstar.dao;
 
 import java.util.List;
-import vn.iotstar.model.Category;
+import vn.iotstar.entity.Category;
 
 public interface CategoryDao {
     void insert(Category category);

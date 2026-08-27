@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import vn.iotstar.model.Category;
+import vn.iotstar.entity.Category;
 import vn.iotstar.service.CategoryService;
 import vn.iotstar.service.impl.CategoryServiceImpl;
 
