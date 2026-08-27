@@ -8,17 +8,16 @@ import vn.iotstar.connection.DBConnection;
 import vn.iotstar.dao.UserDao;
 import vn.iotstar.model.User;
 
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl extends DBConnection implements UserDao {
     public Connection conn = null;
     public PreparedStatement ps = null;
     public ResultSet rs = null;
 
     @Override
     public User get(String username) {
-        String sql = "SELECT * FROM [User] WHERE username = ? ";
+        String sql = "SELECT * FROM [User] WHERE username = ?";
         try {
-            conn = new DBConnection().getConnection();
-            if (conn == null) return null;
+            conn = super.getConnection();
             ps = conn.prepareStatement(sql);
             ps.setString(1, username);
             rs = ps.executeQuery();
@@ -30,7 +29,7 @@ public class UserDaoImpl implements UserDao {
                 user.setFullName(rs.getString("fullname"));
                 user.setPassWord(rs.getString("password"));
                 user.setAvatar(rs.getString("avatar"));
-                user.setRoleid(Integer.parseInt(rs.getString("roleid")));
+                user.setRoleid(rs.getInt("roleid"));
                 user.setPhone(rs.getString("phone"));
                 user.setCreatedDate(rs.getDate("createddate"));
                 return user;
@@ -51,8 +50,7 @@ public class UserDaoImpl implements UserDao {
     public void insert(User user) {
         String sql = "INSERT INTO [User](email, username, fullname, password, avatar, roleid, phone, createddate) VALUES (?,?,?,?,?,?,?,?)";
         try {
-            conn = new DBConnection().getConnection();
-            if (conn == null) return;
+            conn = super.getConnection();
             ps = conn.prepareStatement(sql);
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getUserName());
@@ -78,14 +76,12 @@ public class UserDaoImpl implements UserDao {
         boolean duplicate = false;
         String query = "SELECT * FROM [User] WHERE email = ?";
         try {
-            conn = new DBConnection().getConnection();
-            if (conn == null) return false;
+            conn = super.getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, email);
             rs = ps.executeQuery();
-            if (rs.next()) {
-                duplicate = true;
-            }
+            if (rs.next()) duplicate = true;
+            rs.close();
             ps.close();
             conn.close();
         } catch (Exception ex) {
@@ -99,14 +95,12 @@ public class UserDaoImpl implements UserDao {
         boolean duplicate = false;
         String query = "SELECT * FROM [User] WHERE username = ?";
         try {
-            conn = new DBConnection().getConnection();
-            if (conn == null) return false;
+            conn = super.getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, username);
             rs = ps.executeQuery();
-            if (rs.next()) {
-                duplicate = true;
-            }
+            if (rs.next()) duplicate = true;
+            rs.close();
             ps.close();
             conn.close();
         } catch (Exception ex) {
@@ -120,14 +114,12 @@ public class UserDaoImpl implements UserDao {
         boolean duplicate = false;
         String query = "SELECT * FROM [User] WHERE phone = ?";
         try {
-            conn = new DBConnection().getConnection();
-            if (conn == null) return false;
+            conn = super.getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, phone);
             rs = ps.executeQuery();
-            if (rs.next()) {
-                duplicate = true;
-            }
+            if (rs.next()) duplicate = true;
+            rs.close();
             ps.close();
             conn.close();
         } catch (Exception ex) {

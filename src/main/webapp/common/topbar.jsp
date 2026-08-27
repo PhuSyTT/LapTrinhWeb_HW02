@@ -4,7 +4,7 @@
     <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto;">
         <div>
             <a href="${pageContext.request.contextPath}/home" style="color: #fff; text-decoration: none; font-weight: 600; font-size: 16px;">
-                <i class="fa fa-shopping-bag" style="color: #00adb5;"></i> ShoppingServletServiceMVC
+                <i class="fa fa-cubes" style="color: #00adb5;"></i> Hệ Thống Servlet CRUD MVC
             </a>
         </div>
         <div>
@@ -14,15 +14,17 @@
                         <li><a href="${pageContext.request.contextPath}/login" style="color: #00adb5; text-decoration: none; font-weight: bold;">Đăng nhập</a></li>
                         <li style="color: #666;">|</li>
                         <li><a href="${pageContext.request.contextPath}/register" style="color: #eee; text-decoration: none;">Đăng ký</a></li>
-                        <li><i class="search fa fa-search search-button" style="cursor: pointer; margin-left: 8px;"></i></li>
                     </ul>
                 </c:when>
                 <c:otherwise>
                     <ul class="list-inline right-topbar" style="list-style: none; margin: 0; padding: 0; display: inline-flex; gap: 12px; align-items: center;">
                         <li>Xin chào, <a href="${pageContext.request.contextPath}/home" style="color: #00adb5; text-decoration: none; font-weight: bold;">${sessionScope.account.fullName}</a></li>
+                        <c:if test="${sessionScope.account.roleid == 1}">
+                            <li style="color: #666;">|</li>
+                            <li><a href="${pageContext.request.contextPath}/admin/category/list" style="color: #ffc107; text-decoration: none; font-weight: bold;"><i class="fa fa-dashboard"></i> Admin Category</a></li>
+                        </c:if>
                         <li style="color: #666;">|</li>
                         <li><a href="${pageContext.request.contextPath}/logout" style="color: #ff6b6b; text-decoration: none;">Đăng Xuất</a></li>
-                        <li><i class="search fa fa-search search-button" style="cursor: pointer; margin-left: 8px;"></i></li>
                     </ul>
                 </c:otherwise>
             </c:choose>
